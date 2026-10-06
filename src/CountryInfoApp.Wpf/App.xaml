@@ -1,0 +1,23 @@
+<Application x:Class="CountryInfoApp.Wpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:CountryInfoApp.Presentation.ViewModels;assembly=CountryInfoApp.Presentation"
+             xmlns:views="clr-namespace:CountryInfoApp.Wpf.Views">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Each view model is rendered by its view (view-model-first navigation). -->
+            <DataTemplate DataType="{x:Type vm:CountryBrowserViewModel}"><views:CountryBrowserView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:CountryDetailsViewModel}"><views:CountryDetailsView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:LookupViewModel}"><views:LookupView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:AllCountriesViewModel}"><views:AllCountriesView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:CurrenciesViewModel}"><views:CurrenciesView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:LanguagesViewModel}"><views:LanguagesView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:StatisticsViewModel}"><views:StatisticsView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:QuizViewModel}"><views:QuizView /></DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

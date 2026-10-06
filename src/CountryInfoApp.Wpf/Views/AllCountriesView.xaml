@@ -1,0 +1,25 @@
+<UserControl x:Class="CountryInfoApp.Wpf.Views.AllCountriesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DockPanel>
+        <ContentControl DockPanel.Dock="Top" Content="{Binding}" ContentTemplate="{StaticResource StatusTemplate}" />
+        <DockPanel DockPanel.Dock="Top" Margin="6">
+            <Button DockPanel.Dock="Right" Content="Eksportuj do CSV" Command="{Binding ExportCommand}" Margin="6,0,0,0" />
+            <TextBlock Text="Filtruj:" VerticalAlignment="Center" Margin="0,0,6,0" />
+            <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Bottom" Text="{Binding StatusMessage}" Foreground="{StaticResource MutedTextBrush}" Margin="6,4" />
+        <DataGrid ItemsSource="{Binding Countries}" AutoGenerateColumns="False" IsReadOnly="True"
+                  HeadersVisibility="Column" GridLinesVisibility="Horizontal" Margin="6" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Kod" Binding="{Binding IsoCode}" Width="50" />
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}" Width="2*" />
+                <DataGridTextColumn Header="Stolica" Binding="{Binding CapitalCity}" Width="1.5*" />
+                <DataGridTextColumn Header="Kontynent" Binding="{Binding Continent}" Width="*" />
+                <DataGridTextColumn Header="Kierunkowy" Binding="{Binding PhoneCode}" Width="80" />
+                <DataGridTextColumn Header="Waluta" Binding="{Binding Currency}" Width="60" />
+                <DataGridTextColumn Header="Języki" Binding="{Binding Languages}" Width="2*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,51 @@
+<UserControl x:Class="CountryInfoApp.Wpf.Views.QuizView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:CountryInfoApp.Presentation.ViewModels;assembly=CountryInfoApp.Presentation"
+             x:Name="Root">
+    <DockPanel>
+        <ContentControl DockPanel.Dock="Top" Content="{Binding}" ContentTemplate="{StaticResource StatusTemplate}" />
+        <Border Style="{StaticResource Card}" MaxWidth="620" VerticalAlignment="Top">
+            <StackPanel>
+                <DockPanel Margin="0,0,0,10">
+                    <TextBlock DockPanel.Dock="Right" Text="{Binding Score}" FontWeight="SemiBold" />
+                    <TextBlock Text="Quiz o krajach świata" Style="{StaticResource SectionHeader}" />
+                </DockPanel>
+
+                <TextBlock Text="{Binding QuestionText}" FontSize="18" TextWrapping="Wrap" Margin="0,0,0,10" />
+                <Image Source="{Binding FlagUrl, TargetNullValue={x:Null}}" Height="120" HorizontalAlignment="Left" Margin="0,0,0,10"
+                       Visibility="{Binding FlagUrl, Converter={StaticResource NullToVisibility}}" />
+
+                <ItemsControl ItemsSource="{Binding Options}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type vm:QuizOptionViewModel}">
+                            <Button Content="{Binding Text}" HorizontalContentAlignment="Left" Margin="0,0,0,6" Padding="10,8"
+                                    Command="{Binding DataContext.AnswerCommand, ElementName=Root}" CommandParameter="{Binding}">
+                                <Button.Style>
+                                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding State}" Value="{x:Static vm:AnswerState.Correct}">
+                                                <Setter Property="Background" Value="{StaticResource CorrectBrush}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding State}" Value="{x:Static vm:AnswerState.Wrong}">
+                                                <Setter Property="Background" Value="{StaticResource WrongBrush}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <TextBlock Text="{Binding Feedback}" FontWeight="SemiBold" Margin="0,8"
+                           Visibility="{Binding Feedback, Converter={StaticResource NullToVisibility}}" />
+
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <Button Content="Następne pytanie" Command="{Binding NextQuestionCommand}" />
+                    <Button Content="Zeruj wynik" Command="{Binding ResetScoreCommand}" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D7CFB9E6-3A4E-4282-A619-773EC942AAFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryInfoApp.Core", "src\CountryInfoApp.Core\CountryInfoApp.Core.csproj", "{E46F68F0-ACD0-4811-A790-1BAC0563BE65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryInfoApp.Infrastructure", "src\CountryInfoApp.Infrastructure\CountryInfoApp.Infrastructure.csproj", "{2ED4EB8C-8461-46CD-806E-518C7C04A7FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryInfoApp.Presentation", "src\CountryInfoApp.Presentation\CountryInfoApp.Presentation.csproj", "{2E891DB6-BB37-47DC-A3A2-0C18D7A7B930}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{63E1A537-30C2-428C-BE14-209B3D8A7E41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryInfoApp.Tests", "tests\CountryInfoApp.Tests\CountryInfoApp.Tests.csproj", "{449B8041-F9B3-42D4-81CF-8CB1C784EC36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryInfoApp.Wpf", "src\CountryInfoApp.Wpf\CountryInfoApp.Wpf.csproj", "{0E62CDAE-E092-4BB0-BAB2-9566EF67B6DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E46F68F0-ACD0-4811-A790-1BAC0563BE65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E46F68F0-ACD0-4811-A790-1BAC0563BE65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E46F68F0-ACD0-4811-A790-1BAC0563BE65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E46F68F0-ACD0-4811-A790-1BAC0563BE65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED4EB8C-8461-46CD-806E-518C7C04A7FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED4EB8C-8461-46CD-806E-518C7C04A7FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED4EB8C-8461-46CD-806E-518C7C04A7FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED4EB8C-8461-46CD-806E-518C7C04A7FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E891DB6-BB37-47DC-A3A2-0C18D7A7B930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E891DB6-BB37-47DC-A3A2-0C18D7A7B930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E891DB6-BB37-47DC-A3A2-0C18D7A7B930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E891DB6-BB37-47DC-A3A2-0C18D7A7B930}.Release|Any CPU.Build.0 = Release|Any CPU
+		{449B8041-F9B3-42D4-81CF-8CB1C784EC36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{449B8041-F9B3-42D4-81CF-8CB1C784EC36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{449B8041-F9B3-42D4-81CF-8CB1C784EC36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{449B8041-F9B3-42D4-81CF-8CB1C784EC36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E62CDAE-E092-4BB0-BAB2-9566EF67B6DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E62CDAE-E092-4BB0-BAB2-9566EF67B6DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E62CDAE-E092-4BB0-BAB2-9566EF67B6DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E62CDAE-E092-4BB0-BAB2-9566EF67B6DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E46F68F0-ACD0-4811-A790-1BAC0563BE65} = {D7CFB9E6-3A4E-4282-A619-773EC942AAFA}
+		{2ED4EB8C-8461-46CD-806E-518C7C04A7FE} = {D7CFB9E6-3A4E-4282-A619-773EC942AAFA}
+		{2E891DB6-BB37-47DC-A3A2-0C18D7A7B930} = {D7CFB9E6-3A4E-4282-A619-773EC942AAFA}
+		{449B8041-F9B3-42D4-81CF-8CB1C784EC36} = {63E1A537-30C2-428C-BE14-209B3D8A7E41}
+		{0E62CDAE-E092-4BB0-BAB2-9566EF67B6DF} = {D7CFB9E6-3A4E-4282-A619-773EC942AAFA}
+	EndGlobalSection
+EndGlobal

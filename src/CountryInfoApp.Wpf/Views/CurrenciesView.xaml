@@ -1,0 +1,39 @@
+<UserControl x:Class="CountryInfoApp.Wpf.Views.CurrenciesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DockPanel>
+        <ContentControl DockPanel.Dock="Top" Content="{Binding}" ContentTemplate="{StaticResource StatusTemplate}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Style="{StaticResource Card}">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Text="Waluty" Style="{StaticResource SectionHeader}" />
+                    <DockPanel DockPanel.Dock="Top" Margin="0,0,0,8">
+                        <CheckBox DockPanel.Dock="Right" Content="Sortuj według kodu" IsChecked="{Binding SortByCode}"
+                                  VerticalAlignment="Center" Margin="8,0,0,0" />
+                        <TextBlock Text="Szukaj:" VerticalAlignment="Center" Margin="0,0,6,0" />
+                        <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" />
+                    </DockPanel>
+                    <DataGrid ItemsSource="{Binding Currencies}" SelectedItem="{Binding SelectedCurrency}"
+                              AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Kod" Binding="{Binding IsoCode}" Width="60" />
+                            <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}" Width="*" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </Border>
+
+            <Border Grid.Column="1" Style="{StaticResource Card}">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Text="Kraje używające wybranej waluty" Style="{StaticResource SectionHeader}" />
+                    <ListBox ItemsSource="{Binding CountriesUsingCurrency}" DisplayMemberPath="Name" />
+                </DockPanel>
+            </Border>
+        </Grid>
+    </DockPanel>
+</UserControl>

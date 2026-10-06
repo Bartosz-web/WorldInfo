@@ -1,0 +1,28 @@
+<UserControl x:Class="CountryInfoApp.Wpf.Views.LookupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DockPanel>
+        <ContentControl DockPanel.Dock="Top" Content="{Binding}" ContentTemplate="{StaticResource StatusTemplate}" />
+        <Border Style="{StaticResource Card}" VerticalAlignment="Top" MaxWidth="640" HorizontalAlignment="Left">
+            <StackPanel>
+                <TextBlock Text="Szybkie wyszukiwanie" Style="{StaticResource SectionHeader}" />
+
+                <TextBlock Text="Czego szukasz?" Style="{StaticResource FieldLabel}" />
+                <ComboBox ItemsSource="{Binding Options}" SelectedItem="{Binding SelectedOption}"
+                          DisplayMemberPath="Title" Margin="0,0,0,10" />
+
+                <TextBlock Text="{Binding SelectedOption.InputHint}" Style="{StaticResource FieldLabel}" />
+                <DockPanel Margin="0,0,0,12">
+                    <Button DockPanel.Dock="Right" Content="Szukaj" Command="{Binding SearchCommand}" IsDefault="True" Margin="6,0,0,0" />
+                    <TextBox Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" />
+                </DockPanel>
+
+                <TextBlock Text="Wynik:" Style="{StaticResource FieldLabel}"
+                           Visibility="{Binding Result, Converter={StaticResource NullToVisibility}}" />
+                <TextBox Text="{Binding Result, Mode=OneWay}" IsReadOnly="True" BorderThickness="0" Background="Transparent"
+                         FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap"
+                         Visibility="{Binding Result, Converter={StaticResource NullToVisibility}}" />
+            </StackPanel>
+        </Border>
+    </DockPanel>
+</UserControl>
